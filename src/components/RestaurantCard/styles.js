@@ -14,3 +14,35 @@ export const Restaurant = styled.div`
     }
 
 `;
+
+export const RestaurantInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+export const Title = styled.span`
+    font-family: ${(props) => props.theme.colors.regular};
+    color: ${(props) => props.theme.colors.text};
+    font-sixe: 24px;
+    font-weight: bold;
+    line-height: 29px;
+    margin-botton: 10px;
+`;
+
+export const Address = styled.span`
+    font-family: ${(props) => props.theme.colors.regular};
+    color: ${(props) => props.theme.colors.text};
+    font-sixe: 16px;
+    line-height: 29px;
+    margin-botton: 10px;
+    margin-top: 10px;
+
+
+`;
+
+export const RestaurantPhoto = styled.img`
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 6px;
+`;
