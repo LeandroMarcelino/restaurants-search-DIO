@@ -4,19 +4,19 @@ import TextField, { HelperText, Input } from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 import logo from '../../assets/logo.svg';
 import restaurante from '../../assets/restaurante-fake.png'
-import { Container, Search, Logo, Wrapper, Map, CarouselTitle } from './styles';
-
+import { Container, Carousel, Search, Logo, Wrapper, Map, CarouselTitle } from './styles';
+import { Card } from '../../components';
 
 const Home = () => {
     const [inputValue, setInputValue] = useState('');
 
     const settings = {
         dots: false,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    adaptiveHeight: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        adaptiveHeight: true,
 
     };
 
@@ -37,12 +37,14 @@ const Home = () => {
                             onChange={(e) => setInputValue(e.target.value)} />
                     </TextField>
                     <CarouselTitle>Na sua Área</CarouselTitle>
-                    <Slider {... settings}>
-                        <div><img src={restaurante} /></div>
-                        <div><img src={restaurante} /></div>
-                        <div><img src={restaurante} /></div>
-                        <div><img src={restaurante} /></div>
-                    </Slider>
+                    <Carousel {...settings}>
+                        <Card photo={restaurante} title="nome bla" />
+                        <Card photo={restaurante} title="nome bla" />
+                        <Card photo={restaurante} title="nome bla" />
+                        <Card photo={restaurante} title="nome bla" />
+                        <Card photo={restaurante} title="nome bla" />
+                        <Card photo={restaurante} title="nome bla" />
+                    </Carousel>
                 </Search>
             </Container>
             <Map />
