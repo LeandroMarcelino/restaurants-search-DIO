@@ -4,17 +4,16 @@ import { ThemeProvider } from 'styled-components';
 import { Reset } from 'styled-reset';
 
 import store from './redux/store';
-import theme from './theme.js';
 import Home from './pages/Home';
+import theme from './theme';
 
 function App() {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme} >
+      <ThemeProvider theme={theme}>
         <Reset />
         <Home />
       </ThemeProvider>
-
     </Provider>
   );
 }

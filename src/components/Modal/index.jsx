@@ -1,43 +1,37 @@
-import React, { useEffect } from "react";
-import Portal from './Portal'
-import {Overlay, Dialog }  from './styles'
+import React, { useEffect } from 'react';
 
+import Portal from './Portal';
+import { Overlay, Dialog } from './styles';
 
-const Modal = ({children, open, onClose}) => {
-    useEffect(() => {
-        function onEsc(e) {
-            if(e.keyCode === 27) onClose();
-        }
-
-        window.addEventListener('keydown', onEsc);
-
-        return () => {
-            window.removeEventListener('keydown', onEsc);
-        };
-
-    }, [onClose]);
-    if(!open) return null;
-
-   
-    function onOverlayClick() {
-        onClose();
-
-    }    
-    function onDialogClick(e) {
-        e.stopPropagation();
-
+const Modal = ({ children, open, onClose }) => {
+  useEffect(() => {
+    function onEsc(event) {
+      if (event.keyCode === 27) onClose();
     }
+    window.addEventListener('keydown', onEsc);
 
-    return (
+    return () => {
+      window.removeEventListener('keydown', onEsc);
+    };
+  }, [onClose]);
 
-        <Portal>
-            <Overlay onclick={onOverlayClick}>
-                <Dialog onclick={onDialogClick}>{children}</Dialog>
+  if (!open) return null;
 
-            </Overlay>
+  function onOverlayClick() {
+    onClose();
+  }
 
-        </Portal>
-    );
+  function onDialogClick(event) {
+    event.stopPropagation();
+  }
+
+  return (
+    <Portal>
+      <Overlay onClick={onOverlayClick}>
+        <Dialog onClick={onDialogClick}>{children}</Dialog>
+      </Overlay>
+    </Portal>
+  );
 };
 
 export default Modal;
